@@ -1,0 +1,8 @@
+Chào mọi người , lập trình viên hằng ngày phải làm việc với các trình soạn thảo 
+Hẳn ai cũng muốn tăng hiệu suất và tốc độ code của mình
+Hầu hết các trình soạn thảo đều có hỗ trợ chức năng snippet
+Hôm nay mình sẽ hướng dẫn các bạn tạo 1 snippet trong visual studio code
+
+để tạo snippet vào file > 
+vậy là xong
+lần đầu làm video có gì sai sót các bạn thông cảm :))
