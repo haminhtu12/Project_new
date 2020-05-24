@@ -70,7 +70,11 @@ class SliderController extends Controller
 
     }
     public function save(Request $request){
-         echo "<h3 style =\"color:red\">". Save ."</h3>";
+        $validateData = $request ->validate([
+            'name'=>  'required|min:3',
+            'link'=>  'bail|required|min:3|url',
+        ]);
+
 
     }
 }

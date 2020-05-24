@@ -39,6 +39,22 @@ return $xhtml;
 
                                             </div>
                                          </div>",$elements['element']);
+             break;
+
+         case 'thumb' :
+             $xhtml.= sprintf("
+                    <div class=\"form-group\">
+                        %s
+                        <div class=\"col-md-6 col-sm-6 col-xs-12\">
+                        %s
+                            <p style=\"margin-top: 50px;\">
+                        %s
+                                                              </p>
+                        </div>
+                    </div>
+
+           ",$elements['label'],$elements['element'],$elements['thumb']);
+
 
      }
         return $xhtml;

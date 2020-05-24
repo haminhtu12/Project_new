@@ -1,9 +1,12 @@
 @extends('admin.main')
 @php
     use App\Helpers\Form as FormTemplate;
+    use App\Helpers\Template as Template;
     $formInputClass = config('zvn.template.form_input.class');
     $formLabelClass = config('zvn.template.form_label.class');
     $nameInput = Form::text( 'name', $item['name'],['class' => $formInputClass]);
+    $inputHiddenId = Form::hidden( 'id', $item['id']);
+    $inputHiddenThumb = Form::hidden( 'thumb_current', $item['thumb']);
     $statusValue = [
         'default'=>'SelectStatus',
         'active'=>'Active',
@@ -27,17 +30,21 @@
             'element'=> Form::text( 'link', $item['link'],['class' => $formInputClass])
             ],
              [
-            'label'=> Form::label('thumb', 'thumb ',  ['class'  => $formLabelClass]),
-            'element'=>Form::file('thumb', ['class'  => $formLabelClass])
+            'label'=> Form::label('thumb', 'Thumb ',  ['class'  => $formLabelClass]),
+            'element'=>Form::file('thumb', ['class'  => $formInputClass]),
+            'thumb'=> (!empty($item['id'])) ? Template::showItemImage($controllerName,$item['thumb'],$item['name']) :null,
+            'type'=> 'thumb',
             ],
             [
-            'element'=>   Form::button('<i class="fa fa-save"></i>', [ 'class' => 'btn btn-success'] ),
+            'element'=> $inputHiddenId.$inputHiddenThumb.  Form::submit('Save', [ 'class' => 'btn btn-success'] ),
              'type'=> 'btn-submit',
             ],
+
 ];
 @endphp
 @section('content')
     @include('admin.templates.page_header',['pageIndex' =>false])
+    @include('admin.templates.error')
     <!--box-lists-->
     <div class="row">
         @php
@@ -56,19 +63,8 @@
             ]) }}
                 {!! FormTemplate::show($elements) !!}
                 {!! Form::close() !!}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <label for="thumb" class="control-label col-md-3 col-sm-3 col-xs-12">Thumb</label>--}}
-{{--                        <div class="col-md-6 col-sm-6 col-xs-12">--}}
-{{--                            <input class="form-control col-md-6 col-xs-12" name="thumb" type="file" id="thumb">--}}
-{{--                            <p style="margin-top: 50px;"><img src="http://proj_news.xyz/images/slider/LWi6hINpXz.jpeg"--}}
-{{--                                                              alt="Ưu đãi học phí" class="zvn-thumb"></p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="ln_solid"></div>--}}
+
+
                 <div class="x_content">
                 </div>
             </div>
