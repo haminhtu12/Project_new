@@ -22,7 +22,7 @@
             'element'=> Form::text( 'Description', $item['description'],['class' => $formInputClass])
             ],
         [
-            'label'=> Form::label('Status', 'Status ',  ['class'  => $formLabelClass]),
+            'label'=> Form::label('status', 'status',  ['class'  => $formLabelClass]),
             'element'=> Form::select('size', $statusValue,  $item['status'], ['class' => $formInputClass])
             ],
              [

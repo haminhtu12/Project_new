@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SliderModel as MainModel;
-
+use App\Http\Requests\SliderRequest as MainRequest;
 
 class SliderController extends Controller
 {
@@ -69,11 +69,7 @@ class SliderController extends Controller
 
 
     }
-    public function save(Request $request){
-        $validateData = $request ->validate([
-            'name'=>  'required|min:3',
-            'link'=>  'bail|required|min:3|url',
-        ]);
+    public function save(MainRequest $request){
 
 
     }
