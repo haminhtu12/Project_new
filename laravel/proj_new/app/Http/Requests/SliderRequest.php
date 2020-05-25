@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SliderRequest extends FormRequest
 {
@@ -27,8 +28,10 @@ class SliderRequest extends FormRequest
             'name'=>         'bail|required|min:3',
             'description'=>  'bail|required|min:3',
             'link'=>         'bail|required|min:3|url',
-            'status'=>       'bail|in:active,inactive'
-
+            'status'=>           [
+                'required',
+                Rule::in(['active', 'inactive']),
+            ],
         ];
     }
     public function messages()
