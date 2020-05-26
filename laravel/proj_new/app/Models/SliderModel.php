@@ -10,9 +10,14 @@ class SliderModel extends Model
 {
     protected $table = 'slider';
     // public $incrementing = true;
-    public $timestamps = false;
+    public $timestamps = true;
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
+    protected $crudNotAccepted = [
+        '_token',
+        'thumb_current',
+        'thumb'
+    ];
     public function listItems($params =null, $options=null)
     {
          $fieldSearchAccess =[
@@ -21,6 +26,7 @@ class SliderModel extends Model
              'description',
              'link',
          ];
+
         $result = null;
         $value = $params['search']['value'];
         if ($options['task'] == 'admin-list-items') {
@@ -82,5 +88,25 @@ if ($options['task'] == 'admin-count-items-group-by-status'){
     public  function getItem($param){
         $result = self::select('*')->where('id',$param['id'])->first();
         return $result;
+    }
+    public function saveItem($params = null ,$option = null){
+        if ($option['task']=='add -item'){
+          //  $params = array_diff_key($params,array_flip($this->crudNotAccepted) );
+            $this->name = $params['name'];
+            $this->description = $params['description'];
+            $this->status = $params['status'];
+            $this->link = $params['link'];
+            $this->name = $params['name'];
+            $this->save();
+            echo '<pre style ="color:red">';
+            print_r($params);
+            echo '</pre>';
+
+        // self::insert($params);
+
+
+
+
+        }
     }
 }

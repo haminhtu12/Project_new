@@ -28,10 +28,11 @@ class SliderRequest extends FormRequest
             'name'=>         'bail|required|min:3',
             'description'=>  'bail|required|min:3',
             'link'=>         'bail|required|min:3|url',
-            'status'=>           [
-                'required',
-                Rule::in(['active', 'inactive']),
-            ],
+            'status'=>       'required|in:active,inactive'
+
+
+
+
         ];
     }
     public function messages()

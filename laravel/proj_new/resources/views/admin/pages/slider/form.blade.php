@@ -19,11 +19,11 @@
             ],
         [
             'label'=> Form::label('Description', 'Description ',  ['class'  => $formLabelClass]),
-            'element'=> Form::text( 'Description', $item['description'],['class' => $formInputClass])
+            'element'=> Form::text( 'description', $item['description'],['class' => $formInputClass])
             ],
         [
             'label'=> Form::label('status', 'status',  ['class'  => $formLabelClass]),
-            'element'=> Form::select('size', $statusValue,  $item['status'], ['class' => $formInputClass])
+            'element'=> Form::select('status', $statusValue,  $item['status'], ['class' => $formInputClass])
             ],
              [
             'label'=> Form::label('link', 'Link ',  ['class'  => $formLabelClass]),
