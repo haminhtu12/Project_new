@@ -10,13 +10,11 @@ use App\Http\Controllers\SliderController;
         <thead>
         <tr class="headings">
             <th class="column-title">#</th>
-            <th class="column-title">Name</th>
-            <th class="column-title">Description</th>
-            <th class="column-title">Thumb</th>
-            <th class="column-title">Status</th>
-            <th class="column-title">Created</th>
-            <th class="column-title">Modified</th>
-            <th class="column-title">Action</th>
+            <th class="column-title">Slider Info</th>
+            <th class="column-title">Trạng Thái</th>
+            <th class="column-title">Tạo Mới</th>
+            <th class="column-title">Chỉnh Sửa</th>
+            <th class="column-title">Hành Động</th>
         </tr>
         </thead>
         <tbody>
@@ -43,15 +41,14 @@ use App\Http\Controllers\SliderController;
                 @endphp
                 <tr class="{{$class}} pointer">
                     <td class="">{{$index}}</td>
-                    <td width="12%">{!! $name !!} <br>
-
-                                 {!! $link !!}
+                    <td width="12%"><b>Name</b>{!! $name !!} <br>
+                                    <b>Link</b>{!! $link !!} <br>
+                                   <b>Description</b> {!! $description !!}
+                                      <p>{!! $thumb !!}</p>
 
                     </td>
-                    <td>   {!! $description !!}</td>
-                    <td width="5%">
-                    <p>{!! $thumb !!}</p>
-                    </td>
+{{--                    <td width="5%">--}}
+{{--                    </td>--}}
                     <td>{!!$status !!}</td>
                     <td>{!!$createHistory !!}</td>
                     <td>{!!$modifyHistory !!}</td>

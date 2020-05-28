@@ -61,6 +61,7 @@
                                 'accept-charset'=>"UTF-8"
 
             ]) }}
+
                 {!! FormTemplate::show($elements) !!}
                 {!! Form::close() !!}
 

@@ -83,9 +83,9 @@ class SliderController extends Controller
 
         }
         $this->model->saveItem($params,['task'=>$task]);
-//            return redirect()->route($this->controllerName)->with([
-//                'notify'=>$notify
-//            ]);
+            return redirect()->route($this->controllerName)->with([
+                'notify'=>$notify
+            ]);
 
     }
     }
